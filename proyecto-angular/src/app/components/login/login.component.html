@@ -1,0 +1,10 @@
+<div class="container mt-lg center">
+    <div class="col">
+        <h2>Iniciar sesión</h2>        
+        <form class="form">
+          <input type="text" #username name="username" placeholder="Username">
+          <input type="password" #password name="password" placeholder="Password">
+          <button type="submit" (click)="logIn(username.value, password.value, $event)" id="login-button">Login</button>
+        </form>
+    </div>
+</div>

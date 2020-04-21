@@ -1,0 +1,46 @@
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container">
+        <div class="container">
+          <a class="navbar-brand logo" [routerLink]="['/sobre-mi']"><img class="logo-img" src="../assets/img/logo.jpg">CroosPH</a>
+
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item" [routerLinkActive]="['active']">
+                <a class="nav-link" [routerLink]="['/sobre-mi']">Sobre mi</a>
+              </li>
+              <li class="nav-item" [routerLinkActive]="['active']">
+                <a class="nav-link" [routerLink]="['/proyectos']">Projectos</a>
+              </li>
+              <li class="nav-item" [routerLinkActive]="['active']">
+                <a class="nav-link" [routerLink]="['/crear-proyectos']">Crear proyectos</a>
+              </li>
+              <li class="nav-item" [routerLinkActive]="['active']">
+                <a class="nav-link" [routerLink]="['/contacto']">Contacto</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="global">   
+        <router-outlet></router-outlet>  
+      
+      <footer id="footer">
+        <div class="container footer-cont">
+          <p>Fotografo profesional argentino. &copy;</p>
+        </div>
+      </footer>
+   
+    </div>
+  </div>
+</body>

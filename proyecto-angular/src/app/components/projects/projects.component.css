@@ -1,0 +1,12 @@
+.img-project{
+    width: 100%;
+    height: 300px;
+    border: 1px solid #ccc;
+}
+.img-link{
+    text-decoration: none;
+    color: #000000;
+}
+.img-link:hover{
+    opacity: 0.9;
+}

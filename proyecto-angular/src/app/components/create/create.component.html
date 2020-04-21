@@ -1,0 +1,68 @@
+<div class="container" *ngIf="projecto">
+    <h2 class="mt-lg pad-tp">{{title}}</h2>
+    <form #projectForm="ngForm" (ngSubmit)="onSubmit(projectForm)">
+        <div class="row">
+            <div class="col-md-6">
+
+                <p>
+                    <label for="name">Nombre</label>
+                    <input class="form-control" type="text" name="name" #name="ngModel" [(ngModel)]="projecto.name"
+                        required>
+                    <span class="span-error" *ngIf="name.touched && !name.valid">
+                        El campo es obligatorio
+                    </span>
+                </p>
+
+                <p>
+                    <label for="descripcion">Descripcion</label>
+                    <textarea class="form-control" type="text" name="descripcion" #descripcion="ngModel"
+                        [(ngModel)]="projecto.descripcion" required>
+                    </textarea>
+                    <span class="span-error" *ngIf="descripcion.touched && !descripcion.valid">
+                        El campo es obligatorio
+                    </span>
+                </p>
+
+                <p>
+                    <label for="categoria">Categoria</label>
+                    <input class="form-control" type="text" name="categoria" #categoria="ngModel"
+                        [(ngModel)]="projecto.categoria" required>
+                    <span class="span-error" *ngIf="categoria.touched && !categoria.valid">
+                        El campo es obligatorio
+                    </span>
+                </p>
+
+                <p>
+                    <label for="lenguajes">Lenguajes</label>
+                    <input class="form-control" type="text" name="lenguajes" #lenguajes="ngModel"
+                        [(ngModel)]="projecto.lenguajes" required>
+                    <span class="span-error" *ngIf="lenguajes.touched && !lenguajes.valid">
+                        El campo es obligatorio
+                    </span>
+                </p>
+                <p>
+                    <label for="image">Imagen del proyecto</label>
+                   <!-- <span *ngIf="projecto.img" style="float:none;">
+                        <img src="{{url+'get-image/'+projecto.img}}" style="width:100px;"/>
+                    </span><br/>-->
+                    <input type="file" name="image" placeholder="Subir imagen" (change)="fileChangeEvent($event)"/>
+                </p>
+
+                <button class="btn btn-block violet mt-md" [disabled]="!projectForm.form.valid">ENVIAR</button>
+
+            </div>
+            <div class="col-md-6">
+                <span *ngIf="projecto.img" style="float:none;">
+                    <img src="{{url+'get-image/'+projecto.img}}" style="width:100%; height: 400px;"/>
+                </span><br/>
+                <div class="message-success" *ngIf="status==true">
+                    <p>El projecto se ha creado correctamente! Podés <a
+                            [routerLink]="['/proyecto-detalle', saveProject._id]">verlo aquí</a></p>
+                </div>
+                <div class="message-success" *ngIf="status==false">
+                    <p>El projecto no se ha podido crear.</p>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
